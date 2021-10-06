@@ -54,6 +54,9 @@ export default function App() {
       // console.log(sOS);
     }
   }
+  function errorHandler() {
+    alert("Server is down. Try again after some time");
+  }
   function getCurrentPrice(symbolOfStock) {
     if (symbolOfStock !== "") {
       console.log("getcurrent : ", symbolOfStock);
@@ -68,7 +71,8 @@ export default function App() {
           var price = Object.values(current)[3];
           console.log(price);
           setCurrentPrice(price);
-        });
+        })
+        .catch(errorHandler);
     }
   }
   function clickEventHandler() {
