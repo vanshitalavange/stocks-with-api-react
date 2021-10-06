@@ -62,7 +62,6 @@ export default function App() {
         .then((json) => {
           console.log(json);
           console.log(getCurrentPriceURL(symbolOfStock));
-
           var timeseriesdaily = Object.values(json)[1];
           console.log(timeseriesdaily);
           var current = Object.values(timeseriesdaily)[0];
@@ -79,8 +78,8 @@ export default function App() {
 
     if (stockName === "" || priceOfPurchase === "" || stockQuantity === "") {
       setResult("All the fields are mandatory");
-    } else if (purchasePrice === 0 || quantityOfStock === 0) {
-      setResult("Value cannot be zero");
+    } else if (purchasePrice <= 0 || quantityOfStock <= 0) {
+      setResult("Please enter valid input");
     } else {
       var previousValue = purchasePrice * quantityOfStock;
       var currentValue = currentPriceOfStock * quantityOfStock;
