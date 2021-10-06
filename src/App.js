@@ -20,6 +20,59 @@ export default function App() {
   function getCurrentPriceURL(symbolOfStock) {
     return currentPriceURL + symbolOfStock + "&apikey=8NT09YOGTVEE1ZHM";
   }
+  function searchResults(event) {
+    let symbolOfStock = "";
+    let inputTxt = event.target.value;
+
+    if (inputTxt !== "") {
+      fetch(getSearchURL(inputTxt))
+        .then((response) => response.json())
+        .then((json) => {
+          console.log(json);
+          for (let i = 0; i < json.bestMatches.length; i++) {
+            var name = json.bestMatches[i];
+            console.log("name : ", name);
+            var stock = Object.values(name);
+            const optionName = document.createElement("option");
+            optionName.value = stock[1];
+            var stockList = document.getElementById("stock-list");
+            stockList.appendChild(optionName);
+            setStockName(inputTxt);
+            if (inputTxt === stock[1]) {
+              symbolOfStock = stock[0];
+            }
+          }
+          console.log(inputTxt);
+          console.log(symbolOfStock);
+
+          console.log(stock[1]);
+
+          console.log(symbolOfStock);
+          getCurrentPrice(symbolOfStock);
+        });
+
+      // console.log(sOS);
+    }
+  }
+  function getCurrentPrice(symbolOfStock) {
+    if (symbolOfStock !== "") {
+      console.log("getcurrent : ", symbolOfStock);
+      fetch(getCurrentPriceURL(symbolOfStock))
+        .then((response) => response.json())
+        .then((json) => {
+          console.log(json);
+          console.log(getCurrentPriceURL(symbolOfStock));
+
+          var timeseriesdaily = Object.values(json)[1];
+          console.log(timeseriesdaily);
+          var current = Object.values(timeseriesdaily)[0];
+          var price = Object.values(current)[3];
+          console.log(price);
+          setCurrentPrice(price);
+        });
+    }
+  }
+
   return (
     <div className="App">
       <div className="container">
