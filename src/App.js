@@ -72,6 +72,41 @@ export default function App() {
         });
     }
   }
+  function clickEventHandler() {
+    var purchasePrice = Number(priceOfPurchase);
+    var quantityOfStock = Number(stockQuantity);
+    var currentPriceOfStock = Number(currentPrice);
+
+    if (stockName === "" || priceOfPurchase === "" || stockQuantity === "") {
+      setResult("All the fields are mandatory");
+    } else if (purchasePrice === 0 || quantityOfStock === 0) {
+      setResult("Value cannot be zero");
+    } else {
+      var previousValue = purchasePrice * quantityOfStock;
+      var currentValue = currentPriceOfStock * quantityOfStock;
+
+      var amount = (currentValue - previousValue).toFixed(4);
+      var percentage = Math.abs(amount / previousValue).toFixed(4) * 100;
+
+      if (amount > 0) {
+        setResult(
+          "Yayyy! You have gained profit of " +
+            Math.abs(percentage).toFixed(2) +
+            "%. Your total profit is " +
+            Math.abs(amount)
+        );
+      } else if (amount < 0) {
+        setResult(
+          "Oops! You lost " +
+            Math.abs(percentage).toFixed(2) +
+            "%. Your total loss is " +
+            Math.abs(amount)
+        );
+      } else {
+        setResult("No profit, no loss");
+      }
+    }
+  }
 
   return (
     <div className="App">
