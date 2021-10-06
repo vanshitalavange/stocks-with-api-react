@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+.App {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
+body {
+  background-color: #1f2937;
+}
+h1 {
+  color: #6c63ff;
+}
+.img-container {
+  max-width: 400px;
+  display: block;
+  margin: auto;
+}
+#hero-img {
+  max-width: 90%;
+}
+label,
+input {
+  display: block;
+  margin: 1rem auto auto auto;
+  max-width: 100%;
+  color: #6c63ff;
+  font-size: 1.2rem;
+}
+.container {
+  max-width: 80%;
+  display: block;
+  margin: auto;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+input {
+  margin-top: 0.5rem;
+  border: 1px solid gray;
+  border-radius: 0.5rem;
+  padding-left: 0.5rem;
+  height: 30px;
+}
+#btn-check {
+  margin-top: 1rem;
+  border: 1px solid gray;
+  padding: 0.5rem 1rem;
+  background-color: #6c63ff;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: 0.3rem;
+}
+.input-container {
+  max-width: 100%;
+  background-color: #6366f1;
+  padding: 1.5rem;
+  border: 1px solid gray;
+  border-radius: 0.5rem;
+}
+#output {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #6c63ff;
+  font-size: 1.2rem;
+}
