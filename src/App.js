@@ -93,17 +93,19 @@ export default function App() {
           "Yayyy! You have gained profit of " +
             Math.abs(percentage).toFixed(2) +
             "%. Your total profit is " +
-            Math.abs(amount)
+            Math.abs(amount) +
+            " 🤗"
         );
       } else if (amount < 0) {
         setResult(
           "Oops! You lost " +
             Math.abs(percentage).toFixed(2) +
             "%. Your total loss is " +
-            Math.abs(amount)
+            Math.abs(amount) +
+            " 😔"
         );
       } else {
-        setResult("No profit, no loss");
+        setResult("No profit, no loss 😇");
       }
     }
   }
