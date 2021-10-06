@@ -3,6 +3,23 @@ import React, { useState } from "react";
 import stocks from "./images/stocks.svg";
 
 export default function App() {
+  const [stockName, setStockName] = useState("");
+  const [priceOfPurchase, setPurchasePrice] = useState("");
+  const [stockQuantity, setStockQuantity] = useState("");
+  const [currentPrice, setCurrentPrice] = useState("");
+  const [result, setResult] = useState("");
+
+  var searchURL =
+    "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=";
+  var currentPriceURL =
+    "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=";
+
+  function getSearchURL(inputTxt) {
+    return searchURL + inputTxt + "&apikey=8NT09YOGTVEE1ZHM";
+  }
+  function getCurrentPriceURL(symbolOfStock) {
+    return currentPriceURL + symbolOfStock + "&apikey=8NT09YOGTVEE1ZHM";
+  }
   return (
     <div className="App">
       <div className="container">
