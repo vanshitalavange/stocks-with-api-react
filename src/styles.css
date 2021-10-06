@@ -39,6 +39,7 @@ input {
   border-radius: 0.5rem;
   padding-left: 0.5rem;
   height: 30px;
+  color: black;
 }
 #btn-check {
   margin-top: 1rem;
